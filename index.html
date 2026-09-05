@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ang Buhay at mga Akda ni Rizal — Infographic</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+  :root{
+    --paper: #EFE1BF;
+    --paper-light: #FAF3DF;
+    --paper-card: #F5E9C9;
+    --ink: #2B1B12;
+    --ink-soft: #4A3626;
+    --bark: #3E2617;
+    --bark-deep: #2A1810;
+    --coffee: #6F4A31;
+    --oxblood: #7A2E22;
+    --oxblood-deep: #5C2118;
+    --gold: #A9793B;
+    --gold-light: #C9A15E;
+    --line: rgba(62, 38, 23, 0.25);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0; padding:0;
+    background: var(--bark-deep);
+    font-family: 'Lora', serif;
+    color: var(--ink);
+  }
+
+  .page{
+    max-width: 980px;
+    margin: 0 auto;
+    background:
+      radial-gradient(circle at 8% 12%, rgba(169,121,59,0.08), transparent 40%),
+      radial-gradient(circle at 92% 85%, rgba(122,46,34,0.07), transparent 45%),
+      var(--paper);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+  }
+
+  /* ---------- Decorative frame border ---------- */
+  .inner-frame{
+    margin: 14px;
+    border: 2px solid var(--bark);
+    outline: 1px solid var(--gold-light);
+    outline-offset: 6px;
+    padding: 0;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background: linear-gradient(180deg, var(--bark) 0%, var(--bark-deep) 100%);
+    color: var(--paper-light);
+    text-align: center;
+    padding: 64px 32px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    left:50%; transform: translateX(-50%);
+    width: 86%; height: 1px;
+    background: var(--gold-light);
+    opacity:.6;
+  }
+  .hero::before{ top: 18px; }
+  .hero::after{ bottom: 18px; }
+
+  .hero .eyebrow-mark{
+    display:flex; justify-content:center; align-items:center; gap:14px;
+    margin-bottom: 18px;
+  }
+  .hero .eyebrow-mark svg{ width:34px; height:34px; opacity:.85; }
+  .hero .eyebrow-mark span{
+    font-family:'Lora'; font-style:italic; font-size:15px;
+    letter-spacing: 1px; color: var(--gold-light);
+  }
+
+  .hero h1{
+    font-family:'Playfair Display', serif;
+    font-weight:900;
+    font-size: clamp(2.4rem, 6vw, 4.1rem);
+    margin: 0 0 6px;
+    line-height:1.05;
+  }
+  .hero h2{
+    font-family:'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.05rem, 2.6vw, 1.5rem);
+    color: var(--gold-light);
+    margin: 0 0 22px;
+  }
+  .hero p.dates{
+    font-size: 14px;
+    letter-spacing: .5px;
+    color: rgba(250,243,223,0.75);
+    margin:0;
+  }
+  .hero p.dates b{ color: var(--paper-light); }
+
+  /* ---------- Generic section shell ---------- */
+  section{
+    padding: 46px 44px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  section:last-of-type{ border-bottom:none; }
+
+  .sec-head{
+    display:flex;
+    align-items:flex-end;
+    gap:16px;
+    margin-bottom: 26px;
+  }
+  .sec-head svg{ width:40px; height:40px; flex-shrink:0; color: var(--oxblood); }
+  .sec-head .txt h3{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin:0 0 2px;
+    color: var(--bark);
+  }
+  .sec-head .txt p{
+    margin:0;
+    font-size: 13px;
+    color: var(--coffee);
+    font-style: italic;
+  }
+
+  /* ---------- Rizal Law section ---------- */
+  .law-wrap{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    gap: 28px;
+    align-items:start;
+  }
+  .law-badge{
+    background: var(--bark);
+    color: var(--paper-light);
+    border: 2px solid var(--gold);
+    border-radius: 4px;
+    text-align:center;
+    padding: 16px 8px;
+    font-family:'Playfair Display', serif;
+  }
+  .law-badge .num{ font-size: 30px; font-weight:900; line-height:1; }
+  .law-badge .lbl{ font-size:10.5px; letter-spacing:1px; margin-top:6px; color: var(--gold-light); }
+  .law-badge .yr{ font-size:12px; margin-top:10px; color: rgba(250,243,223,.8); }
+
+  .law-cols{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .law-cols h4{
+    font-family:'Playfair Display', serif;
+    font-size:15px;
+    margin: 0 0 8px;
+    color: var(--oxblood);
+    border-bottom: 1px solid var(--line);
+    padding-bottom:6px;
+  }
+  .law-cols ul{ margin:0; padding-left:18px; }
+  .law-cols li{ margin-bottom:7px; font-size:14.5px; line-height:1.48; }
+
+  /* ---------- 19th century context ---------- */
+  .quad{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .quad .card{
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--oxblood);
+    padding: 14px 16px;
+  }
+  .quad .card h4{
+    margin:0 0 6px;
+    font-family:'Playfair Display', serif;
+    font-size:14.5px;
+    color: var(--bark);
+  }
+  .quad .card p{ margin:0; font-size:13.5px; line-height:1.5; color: var(--ink-soft); }
+
+  .influence-strip{
+    background: var(--bark);
+    color: var(--paper-light);
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height:1.6;
+    border-radius:2px;
+  }
+  .influence-strip b{ color: var(--gold-light); }
+
+  /* ---------- Family ---------- */
+  .family-parents{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .parent-card{
+    background: var(--paper-card);
+    border:1px solid var(--line);
+    padding: 16px 18px;
+    text-align:center;
+  }
+  .parent-card .role{
+    font-size:11px; letter-spacing:1px; color: var(--gold);
+    font-style: italic;
+  }
+  .parent-card .name{
+    font-family:'Playfair Display', serif;
+    font-weight:700; font-size:16.5px; color: var(--bark);
+    margin: 4px 0 8px;
+  }
+  .parent-card p{ margin:0; font-size:13px; line-height:1.5; color: var(--ink-soft); }
+
+  .siblings-row{
+    margin-bottom: 22px;
+  }
+  .siblings-row .cap{
+    font-size:12px; letter-spacing:.5px; color:var(--coffee); font-style:italic; margin-bottom:10px;
+  }
+  .sib-list{
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .sib-list span{
+    background: var(--paper-light);
+    border:1px solid var(--gold-light);
+    padding: 5px 12px;
+    font-size:12.5px;
+    border-radius: 20px;
+    color: var(--ink-soft);
+  }
+  .sib-list span.self{
+    background: var(--oxblood);
+    color: var(--paper-light);
+    border-color: var(--oxblood-deep);
+    font-weight:600;
+  }
+
+  .family-note{ font-size:14px; line-height:1.6; color: var(--ink-soft); margin:0; }
+
+  /* ---------- Timeline (childhood -> higher ed) ---------- */
+  .timeline-shell{ position:relative; padding-left: 34px; }
+  .timeline-shell::before{
+    content:"";
+    position:absolute;
+    left: 9px; top: 6px; bottom: 6px;
+    width: 2px;
+    background: repeating-linear-gradient(180deg, var(--gold) 0 6px, transparent 6px 11px);
+  }
+  .t-item{ position:relative; margin-bottom: 30px; }
+  .t-item:last-child{ margin-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left: -34px; top: 4px;
+    width: 12px; height:12px;
+    border-radius:50%;
+    background: var(--oxblood);
+    border:2px solid var(--paper-light);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .t-item h4{
+    font-family:'Playfair Display', serif;
+    font-size: 16px;
+    margin: 0 0 3px;
+    color: var(--bark);
+  }
+  .t-item .t-meta{
+    font-size:11.5px; letter-spacing:.5px; color:var(--gold); font-style:italic; margin-bottom:8px;
+  }
+  .t-item p{ margin:0 0 6px; font-size:14px; line-height:1.55; color: var(--ink-soft); }
+  .t-item ul{ margin:6px 0 0; padding-left:18px; }
+  .t-item li{ font-size:13.5px; line-height:1.5; margin-bottom:4px; color:var(--ink-soft); }
+
+  .abroad-map{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+  }
+  .abroad-map span{
+    font-size:11.5px;
+    background: var(--paper-card);
+    border:1px solid var(--line);
+    padding:4px 10px;
+    border-radius:3px;
+    color: var(--coffee);
+  }
+
+  /* ---------- Reflection ---------- */
+  .reflection{
+    background: linear-gradient(160deg, var(--oxblood) 0%, var(--oxblood-deep) 100%);
+    color: var(--paper-light);
+    padding: 46px;
+    text-align:center;
+  }
+  .reflection .quote-mark{
+    font-family:'Playfair Display', serif;
+    font-size: 60px;
+    line-height:1;
+    color: var(--gold-light);
+    opacity:.7;
+    margin-bottom: -6px;
+  }
+  .reflection h3{
+    font-family:'Playfair Display', serif;
+    font-style: italic;
+    font-weight:600;
+    font-size: clamp(1.15rem, 3vw, 1.55rem);
+    max-width: 640px;
+    margin: 0 auto 14px;
+    line-height:1.45;
+  }
+  .reflection .cap{
+    font-size:11.5px; letter-spacing:1.5px; color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--bark-deep);
+    color: rgba(250,243,223,.55);
+    text-align:center;
+    padding: 18px;
+    font-size: 11.5px;
+    letter-spacing: .5px;
+  }
+
+  @media (max-width: 640px){
+    section{ padding: 34px 22px; }
+    .law-wrap{ grid-template-columns: 1fr; }
+    .law-badge{ width: 130px; margin: 0 auto; }
+    .law-cols{ grid-template-columns: 1fr; }
+    .quad{ grid-template-columns: 1fr; }
+    .family-parents{ grid-template-columns: 1fr; }
+    .reflection{ padding: 34px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="inner-frame">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M4 20 L18 6 M18 6 L14 6 M18 6 L18 10" />
+        <path d="M4 20 C7 17 9 15 9 12 C9 9 7 8 5 8" />
+      </svg>
+      <span>GE — Life and Works of Rizal</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M4 20 L18 6 M18 6 L14 6 M18 6 L18 10" transform="scale(-1,1) translate(-24,0)"/>
+        <path d="M4 20 C7 17 9 15 9 12 C9 9 7 8 5 8" transform="scale(-1,1) translate(-24,0)"/>
+      </svg>
+    </div>
+    <h1>José Rizal</h1>
+    <h2>Ang Buhay, Konteksto, at Pamana</h2>
+    <p class="dates"><b>June 19, 1861</b> — Calamba, Laguna &nbsp;·&nbsp; <b>December 30, 1896</b> — Bagumbayan, Manila</p>
+  </div>
+
+  <!-- 1. RIZAL LAW -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <rect x="4" y="3" width="16" height="18" rx="1"/>
+        <path d="M8 7h8M8 11h8M8 15h5"/>
+      </svg>
+      <div class="txt">
+        <h3>The Rizal Law</h3>
+        <p>Republic Act No. 1425</p>
+      </div>
+    </div>
+
+    <div class="law-wrap">
+      <div class="law-badge">
+        <div class="num">RA</div>
+        <div class="num" style="font-size:26px;">1425</div>
+        <div class="lbl">RIZAL LAW</div>
+        <div class="yr">signed 1956</div>
+      </div>
+
+      <div class="law-cols">
+        <div>
+          <h4>Purpose &amp; Significance</h4>
+          <ul>
+            <li>All schools (public and private) shall include Rizal's life, works and writings including Noli Me Tangere and El Filibusterismo in their curricula.</li>
+            <li>Written to inspire Nationalism and pride of race after the long years of the Filipino people’s struggle for freedom from colonial rule.</li>
+            <li>Rizal's novels model how literature can expose corruption, abuse of power, and social injustice — issues Filipinos still confront.</li>
+            <li>Approved by Congress despite fervent disapproval by number of churches due to Rizal’s severe critiques of Catholic life in the Philippines as exposed in his novels.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Why It Remains Relevant Today</h4>
+          <ul>
+            <li>Rizal’s novels can serve as models for literary works that expose corruption, abuse of power and social injustices in the Philippines today.</li>
+            <li>Helps build critical thinking and civic consciousness.</li>
+            <li>Anchors a shared sense of national identity in an era of globalization and historical distortion online.</li>
+            <li>Reminds each generation that reform begins with education and not with mere protest.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 19TH CENTURY PHILIPPINES -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/>
+      </svg>
+      <div class="txt">
+        <h3>19th-Century Philippines</h3>
+        <p>The world that shaped Rizal</p>
+      </div>
+    </div>
+
+    <div class="quad">
+      <div class="card">
+        <h4>Political</h4>
+        <p>Spain ruled through a centralized, friar-influenced colonial government. Filipinos had no real representation in the Spanish Cortes, and abuses by local officials went largely unchecked.</p>
+      </div>
+      <div class="card">
+        <h4>Social</h4>
+        <p>Society was stratified by race — peninsulares, insulares, mestizos, and indios were treated unequally. Friars wielded enormous influence over education, land, and daily life.</p>
+      </div>
+      <div class="card">
+        <h4>Economic</h4>
+        <p>Friar-owned haciendas (like the one leased by the Rizal family in Calamba) and colonial monopolies restricted local prosperity, while the 1869 opening of the Suez Canal sped up trade and travel to Europe.</p>
+      </div>
+      <div class="card">
+        <h4>Cultural</h4>
+        <p>A rising, Europe-educated ilustrado class absorbed Enlightenment and liberal ideas, while the execution of Gomburza in 1872 for an alleged uprising became a turning point in national consciousness.</p>
+      </div>
+    </div>
+
+    <div class="influence-strip">
+      <b>Influence on Rizal:</b> these conditions gave him the raw material for <i>Noli Me Tangere</i> and <i>El Filibusterismo</i> — novels that exposed friar abuse and colonial injustice — and pushed him toward reform through education rather than armed revolt.
+    </div>
+  </section>
+
+  <!-- 3. FAMILY -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <circle cx="12" cy="6" r="2.5"/>
+        <circle cx="6" cy="17" r="2.2"/>
+        <circle cx="18" cy="17" r="2.2"/>
+        <path d="M12 8.5v4M12 12.5 6 14.8M12 12.5l6 2.3"/>
+      </svg>
+      <div class="txt">
+        <h3>Rizal's Family</h3>
+        <p>Eleven children, one household of ideas</p>
+      </div>
+    </div>
+
+    <div class="family-parents">
+      <div class="parent-card">
+        <div class="role">Father</div>
+        <div class="name">Francisco Mercado Rizal</div>
+        <p>A prosperous farmer of Chinese-Filipino descent who leased land from the Dominican-owned hacienda in Calamba. Known for his discipline and strong sense of responsibility.</p>
+      </div>
+      <div class="parent-card">
+        <div class="role">Mother</div>
+        <div class="name">Teodora Alonso Realonda</div>
+        <p>A well-educated, well-read woman who personally taught young José to read and write, and introduced him to poetry — planting the seed for his literary gift.</p>
+      </div>
+    </div>
+
+    <div class="siblings-row">
+      <div class="cap">Siblings — José was the seventh of eleven children</div>
+      <div class="sib-list">
+        <span>Saturnina</span>
+        <span>Paciano</span>
+        <span>Narcisa</span>
+        <span>Olimpia</span>
+        <span>Lucía</span>
+        <span>María</span>
+        <span class="self">José</span>
+        <span>Concepción</span>
+        <span>Josefa</span>
+        <span>Trinidad</span>
+        <span>Soledad</span>
+      </div>
+    </div>
+
+    <p class="family-note"><b>Background &amp; influence:</b> the Rizals belonged to the principalía, the educated landholding class — comfortable but not immune to colonial abuse. Elder brother <b>Paciano</b> became José's mentor and financier, sending him to the Ateneo and later to Europe; the family's value for education and their firsthand experience of injustice (including their mother's wrongful imprisonment) directly shaped José's worldview.</p>
+  </section>
+
+  <!-- 4 & 5. CHILDHOOD, EDUCATION, ABROAD (timeline) -->
+  <section>
+    <div class="sec-head">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v5l3.5 2"/>
+      </svg>
+      <div class="txt">
+        <h3>Growing Up &amp; Reaching Beyond the Islands</h3>
+        <p>From Calamba to the capitals of Europe</p>
+      </div>
+    </div>
+
+    <div class="timeline-shell">
+
+      <div class="t-item">
+        <div class="t-meta">1861 – 1871 · Calamba &amp; Biñan</div>
+        <h4>Childhood &amp; First Lessons</h4>
+        <p>Born June 19, 1861. His mother taught him the alphabet at age three and nurtured his love for reading and poetry; he later studied under a private tutor and then at a school in Biñan run by Justiniano Aquino Cruz.</p>
+        <ul>
+          <li>Showed early gifts in poetry, drawing, and sculpture.</li>
+          <li>Grew up surrounded by books in a household that prized learning.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1871 – 1872 · A Turning Point</div>
+        <h4>Injustice Close to Home</h4>
+        <p>His mother was imprisoned on questionable charges, and the execution of the priests Gomburza in 1872 — to whom he would later dedicate <i>El Filibusterismo</i> — left a lasting mark on the young Rizal and his brother Paciano.</p>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1872 – 1877 · Ateneo Municipal de Manila</div>
+        <h4>Formal Education Begins</h4>
+        <p>Enrolled at the Ateneo under the sponsorship of Paciano, graduating with the highest honors ("sobresaliente") at just 16 years old.</p>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1877 – 1882 · University of Santo Tomas</div>
+        <h4>Philosophy, Letters, and Medicine</h4>
+        <p>Studied first Philosophy and Letters, then shifted to Medicine — but left after facing discrimination from Dominican professors, a key push toward studying abroad.</p>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1882 – 1885 · Universidad Central de Madrid, Spain</div>
+        <h4>Life Abroad Begins</h4>
+        <p>Earned his Licentiate in Medicine and continued studies in Philosophy and Letters, immersing himself in liberal European thought and the Filipino expatriate community.</p>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1885 – 1887 · Paris &amp; Heidelberg</div>
+        <h4>Specializing in Ophthalmology</h4>
+        <p>Trained under Dr. Louis de Wecker in Paris and Dr. Otto Becker in Heidelberg, Germany — motivated partly by his mother's failing eyesight. It was in Germany that he completed and published his first novel.</p>
+        <ul>
+          <li><b>1887, Berlin:</b> published <i>Noli Me Tangere</i>.</li>
+          <li><b>1891, Ghent:</b> published its sequel, <i>El Filibusterismo</i>.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1887 – 1892 · The Propaganda Movement</div>
+        <h4>Achievements &amp; Advocacy in Europe</h4>
+        <p>Contributed to the reformist newspaper <i>La Solidaridad</i>, corresponded closely with Austrian scholar Ferdinand Blumentritt, and became a leading voice of the Propaganda Movement calling for reforms and Philippine representation in Spain.</p>
+        <div class="abroad-map">
+          <span>Spain</span><span>France</span><span>Germany</span><span>Austria</span>
+          <span>Belgium</span><span>England</span><span>Italy</span><span>Switzerland</span>
+          <span>USA</span><span>Japan</span><span>Hong Kong</span>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-meta">1892 · Return to Manila</div>
+        <h4>La Liga Filipina &amp; Exile</h4>
+        <p>Returned home to found La Liga Filipina, a civic association for peaceful reform. He was arrested soon after and exiled to Dapitan, where he continued to teach, practice medicine, and build community projects until his execution on December 30, 1896.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <div class="reflection">
+    <div class="quote-mark">&ldquo;</div>
+    <div class="cap">Reflection Question</div>
+    <h3>Through written books, Rizal revealed the "social cancer" of his period, during an era when news was conveyed slowly because Church and State exercised strict authority over all thoughts. Many people believe that Rizal would choose modern digital channels to expose the troubles of the nation today, since contemporary information spreads without verification. Scholars question whether a novel would remain sufficient for Rizal when public attention moves quickly across instant messages.</h3>
+  </div>
+
+  <footer>Individual Infographic · GE — Life and Works of Rizal · Submitted for the Rizal Law course<br>Aries Lawrence Doliente<br>BSIT-4D</footer>
+
+</div>
+</div>
+</body>
+</html>
